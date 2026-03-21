@@ -106,7 +106,7 @@
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#projects">Projects</a>
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#skills">Skills</a>
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#contact">Contact</a>
-<a class="px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm scale-95 active:scale-90 transition-transform" href="https://drive.google.com/file/d/140A2HYK6Ea96Aho3qJ2s3JWuKBrB_nV_/view?usp=sharing" download="Harsh_Soni_Resume.pdf">Resume</a>
+<a class="px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm scale-95 active:scale-90 transition-transform" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
 </div>
 <!-- Mobile Toggle -->
 <button id="mobile-menu-btn" class="md:hidden text-on-surface">
@@ -139,12 +139,12 @@
                         Building high-performance, scalable systems with architectural precision. 3 years of production experience turning complex logic into elegant solutions.
                     </p>
 <div class="flex flex-wrap gap-6 items-center">
-<a class="flex items-center space-x-3 group" href="mailto:harsh.soni@ufl.edu">
-<span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
-<span class="material-symbols-outlined text-primary">mail</span>
-</span>
-<span class="font-headline font-medium">Email</span>
-</a>
+<button onclick="navigator.clipboard.writeText('harsh.soni@ufl.edu'); this.querySelector('span.font-headline').textContent='Copied!'; setTimeout(()=>this.querySelector('span.font-headline').textContent='Email',2000)" class="flex items-center space-x-3 group cursor-pointer">
+  <span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
+    <span class="material-symbols-outlined text-primary">mail</span>
+  </span>
+  <span class="font-headline font-medium">Email</span>
+</button>
 <a class="flex items-center space-x-3 group" href="https://linkedin.com/in/harshh06">
 <span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
 <span class="material-symbols-outlined text-primary">link</span>
