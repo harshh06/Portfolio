@@ -104,6 +104,7 @@
 <div class="hidden md:flex space-x-10 items-center">
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#work">Work</a>
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#projects">Projects</a>
+<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#blog">Blog</a>
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#skills">Skills</a>
 <a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#contact">Contact</a>
 <a class="px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm scale-95 active:scale-90 transition-transform" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
@@ -117,6 +118,7 @@
 <div id="mobile-menu" class="hidden md:hidden bg-surface-container-high border-t border-outline-variant/10 px-8 py-4 space-y-4">
 <a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#work">Work</a>
 <a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#projects">Projects</a>
+<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#blog">Blog</a>
 <a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#skills">Skills</a>
 <a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#contact">Contact</a>
 <a class="inline-block mt-2 px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm" href="https://github.com/harshh06">Resume</a>
@@ -372,6 +374,52 @@
 <!-- Project 3 -->
 </div>
 </section>
+<!-- Blog Section -->
+<section class="py-32 px-8 max-w-7xl mx-auto" id="blog">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+<div>
+<span class="text-sm font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Publications</span>
+<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tight">Tech Articles</h2>
+</div>
+<p class="max-w-md text-on-surface-variant font-label text-sm leading-relaxed">
+Deep dives, architectural insights, and technical guides shared with the developer community.
+</p>
+</div>
+<!-- Articles Container -->
+<div id="devto-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+<!-- Loading Skeleton (rendered by default, will be replaced by actual data) -->
+<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px]">
+<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
+<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
+<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
+<div class="mt-auto flex justify-between items-center">
+<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
+</div>
+</div>
+<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px] hidden md:flex">
+<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
+<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
+<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
+<div class="mt-auto flex justify-between items-center">
+<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
+</div>
+</div>
+<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px] hidden lg:flex">
+<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
+<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
+<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
+<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
+<div class="mt-auto flex justify-between items-center">
+<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
+<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
+</div>
+</div>
+</div>
+</section>
 <!-- Skills Section -->
 <section class="py-32 bg-surface-container-low" id="skills">
 <div class="max-w-7xl mx-auto px-8">
@@ -461,6 +509,100 @@
 </footer>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Config: Change this to your DEV.to username
+    const DEVTO_USERNAME = 'harsh06';
+
+    // Fetch DEV.to Articles
+    const fetchArticles = async () => {
+      const container = document.getElementById('devto-articles-container');
+      if (!container) return;
+
+      const fallbackHTML = `
+        <div class="col-span-full text-center py-16 px-8 bg-surface-container-low rounded-sm border border-outline-variant/10 max-w-2xl mx-auto">
+          <span class="material-symbols-outlined text-primary text-5xl mb-4">edit_note</span>
+          <h3 class="font-headline text-2xl font-bold mb-2">My Writing Profile</h3>
+          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
+            I write about software engineering, system architecture, and modern full-stack systems on DEV Community.
+          </p>
+          <a class="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-primary-container to-primary text-on-primary font-bold font-headline rounded-sm uppercase tracking-widest hover:brightness-110 transition-all text-xs" href="https://dev.to/${DEVTO_USERNAME}" target="_blank" rel="noopener noreferrer">
+            <span>Visit DEV.to Profile</span>
+            <span class="material-symbols-outlined text-sm">open_in_new</span>
+          </a>
+        </div>
+      `;
+
+      try {
+        const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`);
+        if (!response.ok) throw new Error('Failed to fetch articles');
+        
+        const articles = await response.json();
+        if (!articles || articles.length === 0) {
+          container.innerHTML = fallbackHTML;
+          return;
+        }
+
+        // Render articles (limit to 3 latest for best portfolio aesthetics)
+        container.innerHTML = articles.slice(0, 3).map(article => {
+          const pubDate = new Date(article.published_at).toLocaleDateString('en-US', {
+            month: 'short',
+            day: 'numeric',
+            year: 'numeric'
+          });
+          
+          const tagsList = article.tag_list.slice(0, 3).map(tag => 
+            `<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">#${tag}</span>`
+          ).join(' ');
+
+          return `
+            <div class="group bg-surface-container-low rounded-sm overflow-hidden flex flex-col hover:translate-y-[-8px] transition-all duration-500 border border-outline-variant/10">
+              ${article.cover_image ? `
+              <div class="aspect-video bg-surface-container-high relative overflow-hidden">
+                <img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" src="${article.cover_image}" alt="${article.title}">
+                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+              </div>
+              ` : ''}
+              <div class="p-8 flex-grow flex flex-col">
+                <div class="flex items-center justify-between mb-4 text-xs font-label text-on-surface-variant">
+                  <span>${pubDate}</span>
+                  <span class="flex items-center gap-1">
+                    <span class="material-symbols-outlined text-[14px]">schedule</span>
+                    ${article.reading_time_minutes} min read
+                  </span>
+                </div>
+                <h3 class="font-headline text-2xl font-bold mb-4 line-clamp-2 group-hover:text-primary transition-colors">${article.title}</h3>
+                <p class="text-on-surface-variant text-sm leading-relaxed mb-6 line-clamp-3">${article.description || ''}</p>
+                <div class="flex flex-wrap gap-2 mb-8 mt-auto">
+                  ${tagsList}
+                </div>
+              </div>
+              <div class="px-8 pb-8 flex justify-between items-center mt-auto border-t border-outline-variant/5 pt-6">
+                <a class="text-primary font-headline text-sm font-bold flex items-center space-x-2 group/link" href="${article.url}" target="_blank" rel="noopener noreferrer">
+                  <span>Read Article</span>
+                  <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+                </a>
+                <div class="flex items-center gap-4 text-xs text-on-surface-variant">
+                  <span class="flex items-center gap-1" title="Reactions">
+                    <span class="material-symbols-outlined text-sm text-primary">favorite</span> ${article.public_reactions_count}
+                  </span>
+                  ${article.comments_count > 0 ? `
+                  <span class="flex items-center gap-1" title="Comments">
+                    <span class="material-symbols-outlined text-sm text-primary">chat</span> ${article.comments_count}
+                  </span>
+                  ` : ''}
+                </div>
+              </div>
+            </div>
+          `;
+        }).join('');
+
+      } catch (error) {
+        console.error('Error fetching dev.to articles:', error);
+        container.innerHTML = fallbackHTML;
+      }
+    };
+
+    fetchArticles();
+
     const btn = document.getElementById('mobile-menu-btn');
     const menu = document.getElementById('mobile-menu');
     btn.addEventListener('click', () => {
