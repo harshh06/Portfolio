@@ -1,647 +1,559 @@
 <!DOCTYPE html>
-
-<html class="dark" lang="en"><head>
+<html class="light" lang="en">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Harsh Soni — Software Engineer</title>
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
-<!-- Material Symbols -->
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<meta name="description" content="Full-stack and AI engineer specializing in scalable systems and production LLM/RAG pipelines. MS CS @ UF."/>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              "inverse-on-surface": "#53555c",
-              "on-primary": "#002283",
-              "on-primary-fixed": "#000000",
-              "surface-container-high": "#1d1f27",
-              "outline": "#74757d",
-              "on-primary-fixed-variant": "#00207e",
-              "tertiary-container": "#f790e0",
-              "surface": "#0c0e14",
-              "on-primary-container": "#001867",
-              "primary-fixed": "#859aff",
-              "inverse-primary": "#134af1",
-              "error-container": "#a70138",
-              "surface-container-highest": "#23262e",
-              "background": "#0c0e14",
-              "surface-container-low": "#11131a",
-              "on-tertiary-container": "#5f0656",
-              "on-tertiary": "#6c1561",
-              "inverse-surface": "#faf8ff",
-              "error-dim": "#d73357",
-              "tertiary-dim": "#e883d2",
-              "on-tertiary-fixed-variant": "#6a1460",
-              "secondary-fixed": "#cfcdff",
-              "surface-bright": "#292c35",
-              "surface-dim": "#0c0e14",
-              "secondary": "#9492ff",
-              "primary-fixed-dim": "#718bff",
-              "on-secondary-container": "#cecbff",
-              "on-error": "#490013",
-              "tertiary-fixed-dim": "#e883d2",
-              "primary": "#97a9ff",
-              "surface-variant": "#23262e",
-              "tertiary": "#ffa3e9",
-              "surface-tint": "#97a9ff",
-              "on-tertiary-fixed": "#380033",
-              "on-secondary-fixed-variant": "#4642aa",
-              "primary-container": "#859aff",
-              "on-secondary-fixed": "#28218d",
-              "on-secondary": "#110077",
-              "on-surface-variant": "#aaaab3",
-              "on-background": "#e5e4ed",
-              "secondary-container": "#3b37a0",
-              "primary-dim": "#3e65ff",
-              "error": "#ff6e84",
-              "on-surface": "#e5e4ed",
-              "secondary-fixed-dim": "#bfbdff",
-              "on-error-container": "#ffb2b9",
-              "outline-variant": "#46484f",
-              "surface-container-lowest": "#000000",
-              "surface-container": "#171921",
-              "secondary-dim": "#9492ff",
-              "tertiary-fixed": "#f790e0"
-            },
-            fontFamily: {
-              "headline": ["Space Grotesk"],
-              "body": ["Inter"],
-              "label": ["Manrope"]
-            },
-            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#1c1b1b",
+            "inverse-primary": "#c8c6c5",
+            "tertiary": "#000000",
+            "on-primary-fixed-variant": "#474746",
+            "primary-fixed": "#e5e2e1",
+            "on-tertiary-fixed-variant": "#484645",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "background": "#fbf9f9",
+            "surface-container": "#efeded",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#e6e2df",
+            "inverse-surface": "#303031",
+            "surface": "#fbf9f9",
+            "primary": "#000000",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#061e27",
+            "on-primary-fixed": "#1c1b1b",
+            "secondary-container": "#cce3f0",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e4e2e2",
+            "on-error": "#ffffff",
+            "outline": "#747878",
+            "surface-tint": "#5f5e5e",
+            "surface-container-high": "#e9e8e7",
+            "surface-bright": "#fbf9f9",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#dbdad9",
+            "on-secondary-container": "#506670",
+            "on-surface": "#1b1c1c",
+            "secondary-fixed": "#cfe6f3",
+            "secondary-fixed-dim": "#b3cad6",
+            "surface-container-highest": "#e4e2e2",
+            "outline-variant": "#c4c7c7",
+            "on-primary-container": "#858383",
+            "surface-container-low": "#f5f3f3",
+            "on-background": "#1b1c1c",
+            "inverse-on-surface": "#f2f0f0",
+            "tertiary-container": "#1c1b1a",
+            "on-surface-variant": "#444748",
+            "on-secondary-fixed-variant": "#344a54",
+            "on-tertiary-fixed": "#1c1b1a",
+            "secondary": "#4c616c",
+            "tertiary-fixed-dim": "#cac6c4",
+            "on-tertiary-container": "#868382",
+            "primary-fixed-dim": "#c8c6c5",
+            "error": "#ba1a1a"
           },
-        },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "100px",
+            "element-gap": "24px",
+            "margin-page": "max(24px, 6vw)",
+            "container-max": "1100px"
+          },
+          fontFamily: {
+            "label-caps": ["Inter"],
+            "headline-lg": ["\"Source Serif 4\""],
+            "display": ["\"Source Serif 4\""],
+            "headline-md": ["\"Source Serif 4\""],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.12em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "1.4", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "1.7", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }]
+          }
+        }
       }
-    </script>
+    }
+</script>
 <style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-      }
-      body {
-        background-color: #0c0e14;
-        color: #e5e4ed;
-        scroll-behavior: smooth;
-      }
-      .glass-nav {
-        background: rgba(12, 14, 20, 0.4);
-        backdrop-filter: blur(20px);
-      }
-      .text-glow {
-        text-shadow: 0 0 20px rgba(151, 169, 255, 0.3);
-      }
-    </style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    scroll-behavior: smooth;
+  }
+  /* Subtle fade-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out both;
+  }
+
+  /* Article link hover underline animation */
+  .article-link {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease;
+  }
+  .article-link:hover {
+    background-size: 100% 1px;
+  }
+</style>
 </head>
-<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+<body class="bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
 <!-- TopNavBar -->
-<nav class="fixed top-0 w-full z-50 glass-nav">
-<div class="flex justify-between items-center max-w-7xl mx-auto px-8 py-6">
-<div class="text-xl font-headline font-bold tracking-tighter text-[#e5e4ed]">Harsh Soni</div>
-<div class="hidden md:flex space-x-10 items-center">
-<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#work">Work</a>
-<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#projects">Projects</a>
-<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#blog">Blog</a>
-<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#skills">Skills</a>
-<a class="font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#contact">Contact</a>
-<a class="px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm scale-95 active:scale-90 transition-transform" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
-</div>
-<!-- Mobile Toggle -->
-<button id="mobile-menu-btn" class="md:hidden text-on-surface">
-<span class="material-symbols-outlined">menu</span>
-</button>
+<nav class="bg-surface-container-lowest w-full sticky top-0 border-b border-outline-variant z-50">
+<div class="flex justify-between items-center h-16 max-w-7xl mx-auto px-margin-page">
+  <!-- Brand name will fade in via JS when scrolled down to avoid redundancy with main display title -->
+  <div id="navbar-brand" class="text-headline-md font-headline-md font-semibold text-primary transition-opacity duration-300 opacity-0">
+    Harsh Soni
+  </div>
+  <!-- Desktop Nav -->
+  <div class="hidden md:flex items-center space-x-8">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#experience">Experience</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#projects">Projects</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#writing">Writing</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
+    <a class="text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm hover:bg-primary hover:text-on-primary transition-all duration-200" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
+  </div>
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-btn" class="md:hidden text-primary">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
 </div>
 <!-- Mobile Dropdown Menu -->
-<div id="mobile-menu" class="hidden md:hidden bg-surface-container-high border-t border-outline-variant/10 px-8 py-4 space-y-4">
-<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#work">Work</a>
-<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#projects">Projects</a>
-<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#blog">Blog</a>
-<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#skills">Skills</a>
-<a class="block font-headline tracking-tight text-[#aaaab3] hover:text-[#97a9ff] transition-colors duration-300" href="#contact">Contact</a>
-<a class="inline-block mt-2 px-5 py-2 bg-gradient-to-r from-primary-container to-primary text-on-primary font-medium text-sm rounded-sm" href="https://github.com/harshh06">Resume</a>
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-t border-outline-variant px-margin-page py-4 space-y-4">
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#experience">Experience</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#projects">Projects</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#writing">Writing</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
+  <a class="inline-block mt-2 text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
 </div>
 </nav>
-<main>
-<!-- Hero Section -->
-<section class="min-h-screen flex flex-col justify-center px-8 max-w-7xl mx-auto pt-20">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-<div class="lg:col-span-8">
-<div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-secondary-container/30 border border-outline-variant/20 mb-6">
-<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-<span class="text-xs font-label uppercase tracking-widest text-primary">Open for opportunities</span>
-</div>
-<h1 class="font-headline text-5xl md:text-8xl font-bold tracking-tighter leading-tight mb-8">
-                        Software Engineer &amp; <br/>
-<span class="text-primary text-glow">MS CS @ UF</span>
-</h1>
-<p class="text-on-surface-variant text-xl md:text-2xl max-w-2xl leading-relaxed mb-12">
-                        Building high-performance, scalable systems with architectural precision. 3 years of production experience turning complex logic into elegant solutions.
-                    </p>
-<div class="flex flex-wrap gap-6 items-center">
-<button onclick="navigator.clipboard.writeText('harsh.soni@ufl.edu'); this.querySelector('span.font-headline').textContent='Copied!'; setTimeout(()=>this.querySelector('span.font-headline').textContent='Email',2000)" class="flex items-center space-x-3 group cursor-pointer">
-  <span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
-    <span class="material-symbols-outlined text-primary">mail</span>
-  </span>
-  <span class="font-headline font-medium">Email</span>
-</button>
-<a class="flex items-center space-x-3 group" href="https://linkedin.com/in/harshh06">
-<span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
-<span class="material-symbols-outlined text-primary">link</span>
-</span>
-<span class="font-headline font-medium">LinkedIn</span>
-</a>
-<a class="flex items-center space-x-3 group" href="https://github.com/harshh06">
-<span class="w-12 h-12 rounded-sm border border-outline-variant/30 flex items-center justify-center group-hover:border-primary transition-colors">
-<span class="material-symbols-outlined text-primary">terminal</span>
-</span>
-<span class="font-headline font-medium">GitHub</span>
-</a>
-</div>
-</div>
-<div class="hidden lg:block lg:col-span-4 relative">
-<div class="aspect-square bg-surface-container-high rounded-sm overflow-hidden border border-outline-variant/10">
-<img class="w-full h-full object-cover opacity-60 grayscale hover:grayscale-0 transition-all duration-700" data-alt="Abstract cinematic code visualization on a screen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8GRMMOzHutsNmLOSkpFTHecdJUqvruCt_zEahxHneue4vONuxYO9ETPn6pC1ZH7J-CJyhCjHIg880-nT-RLZw06R9KG0IUL3-n5z6h7ajIGEPigyaRHVbXozkqkUW7dFdEm9C2e0tLSgI4qDZgqumE7AvJ8YYoFvpdV1rQNR2UL3bdpJWkpWWV6V7jjp91rMy6HzxWZiOo3f0Iy7N7Bud_Y5T4mntcEYtfpHGPFSfW0yROnfr2hh6HvdRIIRWyqBdHS9iFVBlmJA"/>
-</div>
-<div class="absolute -bottom-6 -left-6 px-6 py-4 bg-surface-container-highest border border-outline-variant/20">
-<span class="block text-3xl font-headline font-bold text-primary">4.0</span>
-<span class="text-xs font-label uppercase tracking-tighter text-on-surface-variant">Cumulative GPA</span>
-</div>
-</div>
-</div>
-</section>
-<!-- Experience Section (The "Vertical Timeline") -->
-<section class="py-32 px-8 max-w-7xl mx-auto bg-surface" id="work">
-<div class="mb-20">
-<span class="text-sm font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Professional Path</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tight">Experience</h2>
-</div>
-<div class="relative pl-8 md:pl-24 space-y-24 border-l border-outline-variant/20">
-<!-- Role 1 -->
-<div class="relative">
-<div class="absolute -left-[41px] md:-left-[105px] top-0 w-4 h-4 rounded-full bg-primary shadow-[0_0_15px_rgba(151,169,255,0.6)]"></div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-<div class="md:col-span-4">
-<span class="block font-headline text-2xl font-bold">Attentive.ai</span>
-<span class="block font-label text-primary mt-1">Software Development Engineer</span>
-<span class="block text-sm text-on-surface-variant mt-4 font-label">Jun 2023 – Jun 2025</span>
-</div>
-<div class="md:col-span-8">
-<div class="space-y-6">
-<p class="text-on-surface-variant leading-relaxed text-lg">
-                                    Built high-performance frontend systems for 500+ enterprise construction clients, shipping features used daily in production.
-                                </p>
-<ul class="space-y-4">
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Reduced settings-page load time by 86% (12s &rarr; 1.7s) via React code-splitting, lazy loading, debounced calculations, and IndexedDB caching</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Architected hierarchical folder system for 1,000+ documents per client using PostgreSQL recursive queries, cutting folder navigation latency by 40%</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Built Beam GPT &mdash; an LLM assistant using RAG (Pinecone + GPT-4) for construction document Q&amp;A, serving 500+ users</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Led Feature Panel redesign with Next.js dynamic routing, reducing bundle size by 35%; mentored 3 junior engineers</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2 pt-4">
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">TypeScript</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">React</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Next.js</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Python</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">PostgreSQL</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Redux</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Role 2 -->
-<div class="relative">
-<div class="absolute -left-[41px] md:-left-[105px] top-0 w-4 h-4 rounded-full border-2 border-primary bg-surface"></div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
-<div class="md:col-span-4">
-<span class="block font-headline text-2xl font-bold">Infosys</span>
-<span class="block font-label text-primary mt-1">Specialist Programmer</span>
-<span class="block text-sm text-on-surface-variant mt-4 font-label">Feb 2022 – Jun 2023</span>
-</div>
-<div class="md:col-span-8">
-<div class="space-y-6">
-<p class="text-on-surface-variant leading-relaxed text-lg">
-                                    Built internal tooling for Apple IS&amp;T teams, serving 30,000+ staff across global operations.
-                                </p>
-<ul class="space-y-4">
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Built React/Flask microservices portal replacing fragmented toolset for 30k Apple IS&amp;T staff; achieved 99.9% uptime with Redis caching and PostgreSQL connection pooling</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Diagnosed and fixed concurrency bugs in neo4j-graphql-java query executor; contributed 5 merged PRs, driving 10% adoption increase</span>
-</li>
-<li class="flex items-start space-x-3">
-<span class="material-symbols-outlined text-primary text-sm mt-1">check_circle</span>
-<span class="text-on-surface/80">Improved Flask API response times by 45% via composite index tuning, request pagination, and APM monitoring</span>
-</li>
-</ul>
-<div class="flex flex-wrap gap-2 pt-4">
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Python</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Flask</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">React</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Java</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">PostgreSQL</span>
-<span class="px-3 py-1 bg-secondary-container/20 text-on-secondary-container text-xs rounded-full font-label">Redis</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Projects Section (Bento Inspired Grid) -->
-<section class="py-32 px-8 max-w-7xl mx-auto" id="projects">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-<div>
-<span class="text-sm font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Selected Works</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tight">Engineering Projects</h2>
-</div>
-<p class="max-w-md text-on-surface-variant font-label text-sm leading-relaxed">
-                    A collection of technical challenges solved through code, from deep learning systems to complex real-time platforms.
-                </p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"><div class="group bg-surface-container-low rounded-sm overflow-hidden flex flex-col hover:translate-y-[-8px] transition-all duration-500">
-<div class="aspect-video bg-surface-container-high relative overflow-hidden">
-<div class="absolute top-4 left-4 z-10">
-<span class="px-2 py-1 bg-primary text-on-primary text-[10px] font-bold uppercase tracking-widest rounded-sm shadow-lg">Latest Project</span>
-</div>
-<img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" data-alt="Automated Multi-Agent PR Reviewer visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBu01XhBBWsLhTMOtApINDw3fNf2avqDcCIJtW1hw6tcwAAeR5g87wbVBsm0DFeikRJTrvE9ed7iGOdBqxaDjNu7WR_9GNrcSN4oM79j7t42rY_e4JEcHeKiNZgYTaVWQwIJuWpbcjZApJguaHdgz-oZ36CT4LlpSSpZXB7sEwJ5_N2fvodipPYv3SycC3dD3ZHnFxftYQxsJaTzaPLiLKQyAThPSlUU3hMQtr_5ejvuVgUMCY0JP9niHSKL_ebB76jnKJkfOHaJ9c"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
-</div>
-<div class="p-8 flex-grow">
-<h3 class="font-headline text-2xl font-bold mb-4">Automated Multi-Agent PR Reviewer</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
-      Fully autonomous GitHub PR reviewer. An Orchestrator spawns 3 parallel AI agents — Security, Performance, and Code Quality — each querying a Pinecone vector index via RAG and tool calling, then posts a consolidated review directly on the PR thread.
+
+<!-- Main Content Canvas (Single Column) -->
+<main class="max-w-[800px] mx-auto px-6 md:px-0 py-20 md:py-28">
+
+  <!-- Header / Intro -->
+  <header class="mb-section-gap animate-fade-up">
+    <h1 class="text-display font-display text-primary mb-6">Harsh Soni</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant mb-8 leading-relaxed">
+      Software Engineer specializing in scalable systems and high-performance applications. Over 3 years of production experience at Attentive.ai and Infosys shipping solutions for 500+ enterprise clients. Currently pursuing an MS in Computer Science at the University of Florida, with strong expertise in Python, React, FastAPI, and production LLM/RAG pipelines.
     </p>
-
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">FastAPI</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">LangGraph</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Pinecone</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Google Gemini</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">PyGithub</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Python</span>
-</div>
-</div>
-<div class="px-8 pb-8 flex justify-between items-center">
-<a class="text-primary font-headline text-sm font-bold flex items-center space-x-2 group/link" href="https://github.com/harshh06/automated-pr-reviewer">
-<span>GitHub</span>
-<span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-</a>
-</div>
-</div>
-<!-- Project 1 -->
-<div class="group bg-surface-container-low rounded-sm overflow-hidden flex flex-col hover:translate-y-[-8px] transition-all duration-500">
-<div class="aspect-video bg-surface-container-high relative overflow-hidden">
-<img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" data-alt="Microscopic view of cells with digital overlays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCwMPpUi1NeVud8gHTvEI84x5miPLviE82X71wFKjhfG9bCErv2X_KHq4ZoTrcjXzlwVTVbK1OhTyfJefN6-4WcqhbrfvvowFzovYL5KclWh9FDwnHb7AGJ0BByLosLyzH95Ocyu60ODdyW3YAS0c1yaqwAgGA1INkPABcmG8d3zpjGD7eSQXzygRHdABBaeOCHdyX_acleW-ntc8dyPrgiNr3Q4a_Aw8Zf0gVOB0CBZjOh9Qgzk23VdgBWuidDggiXEcbGK560snA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
-</div>
-<div class="p-8 flex-grow">
-<h3 class="font-headline text-2xl font-bold mb-4">AI Histopathology Scoring</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
-                            Full-stack medical imaging platform utilizing deep learning to automate scoring of tissue samples.
-                        </p>
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Next.js</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">FastAPI</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">PyTorch</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">PostgreSQL</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Docker</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Hugging Face</span>
-</div>
-</div>
-<div class="px-8 pb-8 flex justify-between items-center">
-<div class="flex gap-4 items-center">
-<a class="text-primary font-headline text-sm font-bold flex items-center space-x-1 group/link" href="https://github.com/harshh06/image-scoring-app">
-<span>GitHub</span>
-<span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-</a>
-<a class="text-primary font-headline text-sm font-bold flex items-center space-x-1 group/link" href="https://image-scoring-app.vercel.app">
-<span>Live Demo</span>
-<span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-</a>
-</div>
-</div>
-</div>
-<!-- Project 2 -->
-<div class="group bg-surface-container-low rounded-sm overflow-hidden flex flex-col hover:translate-y-[-8px] transition-all duration-500">
-<div class="aspect-video bg-surface-container-high relative overflow-hidden">
-<img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" data-alt="Abstract glowing networking cables and servers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAI-RYon0MpF0OKrlBwNfKeqo5myxS0mGNIyRUsGDPMCaes8O1pE1GR-_MUGj1bqYRPqZL2Ne9QAdoJSW9eNAeOnCYeZYYDMtdqG75uXXHATtSQUtYGezD6acUIkklMuj-5jMtWqZ_NmTf4qDrZngbPW6waR9HIzhuPGyQM4nZnFqlewHdYH55748k6_p1V5F8iMJSXrvTRc3Fz3w4zicE-WjyiFMt7Em72i6QdkPVZLBrthgrBLDq98KMeRz2bDTHsltNiDKYcg8o"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
-</div>
-<div class="p-8 flex-grow">
-<h3 class="font-headline text-2xl font-bold mb-4">Streaming Platform</h3>
-<p class="text-on-surface-variant text-sm leading-relaxed mb-6">
-                            Scalable video delivery system featuring low-latency socket communication and global content delivery.
-                        </p>
-<div class="flex flex-wrap gap-2 mb-8">
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">React</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Redux Toolkit</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">Socket.io</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">AWS Amplify</span>
-<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">CloudFront</span>
-</div>
-</div>
-<div class="px-8 pb-8 flex justify-between items-center">
-<div class="flex gap-4 items-center">
-<a class="text-primary font-headline text-sm font-bold flex items-center space-x-1 group/link" href="https://github.com/harshh06/Video-Streaming-Platform">
-<span>GitHub</span>
-<span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-</a>
-<a class="text-primary font-headline text-sm font-bold flex items-center space-x-1 group/link" href="https://main.d2vk9jzru3mw4x.amplifyapp.com/">
-<span>Live Demo</span>
-<span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-</a>
-</div>
-
-</div>
-<!-- Project 3 -->
-</div>
-</section>
-<!-- Blog Section -->
-<section class="py-32 px-8 max-w-7xl mx-auto" id="blog">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
-<div>
-<span class="text-sm font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Publications</span>
-<h2 class="font-headline text-4xl md:text-6xl font-bold tracking-tight">Tech Articles</h2>
-</div>
-<p class="max-w-md text-on-surface-variant font-label text-sm leading-relaxed">
-Deep dives, architectural insights, and technical guides shared with the developer community.
-</p>
-</div>
-<!-- Articles Container -->
-<div id="devto-articles-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-<!-- Loading Skeleton (rendered by default, will be replaced by actual data) -->
-<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px]">
-<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
-<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
-<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
-<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
-<div class="mt-auto flex justify-between items-center">
-<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
-<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
-</div>
-</div>
-<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px] hidden md:flex">
-<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
-<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
-<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
-<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
-<div class="mt-auto flex justify-between items-center">
-<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
-<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
-</div>
-</div>
-<div class="animate-pulse bg-surface-container-low rounded-sm border border-outline-variant/10 p-8 flex flex-col h-[380px] hidden lg:flex">
-<div class="h-4 bg-surface-container-high rounded w-1/4 mb-6"></div>
-<div class="h-8 bg-surface-container-high rounded w-3/4 mb-4"></div>
-<div class="h-4 bg-surface-container-high rounded w-full mb-2"></div>
-<div class="h-4 bg-surface-container-high rounded w-5/6 mb-6"></div>
-<div class="mt-auto flex justify-between items-center">
-<div class="h-4 bg-surface-container-high rounded w-1/3"></div>
-<div class="h-6 bg-surface-container-high rounded w-1/4"></div>
-</div>
-</div>
-</div>
-</section>
-<!-- Skills Section -->
-<section class="py-32 bg-surface-container-low" id="skills">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-16">
-<div class="lg:col-span-4">
-<span class="text-sm font-label uppercase tracking-[0.3em] text-on-surface-variant mb-4 block">Capabilities</span>
-<h2 class="font-headline text-4xl font-bold mb-8">Technical Arsenal</h2>
-<p class="text-on-surface-variant leading-relaxed">
-                            A focused stack designed for high-availability, scalability, and developer efficiency.
-                        </p>
-</div>
-<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-12">
-<div>
-<h4 class="font-headline text-lg font-bold mb-6 flex items-center">
-<span class="material-symbols-outlined text-primary mr-3" data-weight="fill">code</span>
-                                Languages
-                            </h4>
-<div class="flex flex-wrap gap-3">
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">Python</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">TypeScript</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">Java</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">C++</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">SQL</span>
-</div>
-</div>
-<div>
-<h4 class="font-headline text-lg font-bold mb-6 flex items-center">
-<span class="material-symbols-outlined text-primary mr-3" data-weight="fill">layers</span>
-                                Frameworks &amp; Tools
-                            </h4>
-<div class="flex flex-wrap gap-3">
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">React</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">Flask</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">Docker</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">AWS</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">Kubernetes</span>
-<span class="px-4 py-2 bg-surface text-on-surface rounded-full text-sm font-label border border-outline-variant/10">PyTorch</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Contact Section -->
-<section class="py-40 px-8 max-w-7xl mx-auto text-center" id="contact">
-<div class="max-w-3xl mx-auto">
-<h2 class="font-headline text-5xl md:text-7xl font-bold tracking-tighter mb-12">
-                    Let's architect something <span class="text-primary italic">extraordinary</span>.
-                </h2>
-<div class="bg-surface-container-high p-12 rounded-sm border border-outline-variant/10 text-left">
-<form id="contact-form" action="https://formspree.io/f/mojkzewb" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="space-y-2">
-<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Name</label>
-<input name="name" required class="w-full bg-transparent border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary px-0 py-3 transition-colors text-on-surface" placeholder="John Doe" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Email</label>
-<input name="email" required class="w-full bg-transparent border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary px-0 py-3 transition-colors text-on-surface" placeholder="john@example.com" type="email"/>
-</div>
-<div class="md:col-span-2 space-y-2">
-<label class="font-label text-xs uppercase tracking-widest text-on-surface-variant">Message</label>
-<textarea name="message" required class="w-full bg-transparent border-0 border-b border-outline-variant/30 focus:ring-0 focus:border-primary px-0 py-3 transition-colors text-on-surface" placeholder="Discussing a new project or role..." rows="4"></textarea>
-</div>
-<div class="md:col-span-2 pt-6">
-<button type="submit" class="w-full py-4 bg-gradient-to-r from-primary-container to-primary text-on-primary font-bold font-headline rounded-sm uppercase tracking-widest hover:brightness-110 transition-all">Send Message</button>
-</div>
-<div id="form-success" class="hidden md:col-span-2 py-4 text-center text-primary font-label border border-primary/30 bg-primary/10 rounded-sm">
-    Thanks! I'll get back to you soon.
-</div>
-</form>
-</div>
-</div>
-</section>
-</main>
-<!-- Footer -->
-<footer class="bg-[#0c0e14] border-t border-[#1d1f27] py-12">
-<div class="max-w-7xl mx-auto px-8 flex flex-col md:flex-row justify-between items-center">
-<div class="mb-8 md:mb-0">
-<div class="text-lg font-bold text-[#e5e4ed] font-headline">Harsh Soni</div>
-<div class="text-xs text-[#aaaab3] font-body mt-1">© 2025 Harsh Soni — Built with precision.</div>
-</div>
-<div class="flex items-center space-x-8">
-<a class="text-[#aaaab3] hover:text-white transition-all font-body text-sm tracking-wide" href="https://github.com/harshh06">GitHub</a>
-<a class="text-[#aaaab3] hover:text-white transition-all font-body text-sm tracking-wide" href="https://linkedin.com/in/harshh06">LinkedIn</a>
-</div>
-</div>
-</footer>
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Config: Change this to your DEV.to username
-    const DEVTO_USERNAME = 'harsh06';
-
-    // Fetch DEV.to Articles
-    const fetchArticles = async () => {
-      const container = document.getElementById('devto-articles-container');
-      if (!container) return;
-
-      const fallbackHTML = `
-        <div class="col-span-full text-center py-16 px-8 bg-surface-container-low rounded-sm border border-outline-variant/10 max-w-2xl mx-auto">
-          <span class="material-symbols-outlined text-primary text-5xl mb-4">edit_note</span>
-          <h3 class="font-headline text-2xl font-bold mb-2">My Writing Profile</h3>
-          <p class="text-on-surface-variant text-sm leading-relaxed mb-6">
-            I write about software engineering, system architecture, and modern full-stack systems on DEV Community.
+    
+    <!-- Clean, High-Value Sub-grid for Education & Contact Details -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 border-t border-outline-variant/30 pt-6">
+      <div>
+        <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest block mb-3">Education</span>
+        <div class="space-y-3">
+          <div>
+            <h3 class="text-body-md font-body-md font-semibold text-primary">University of Florida</h3>
+            <p class="text-body-md font-body-md text-on-surface-variant">Masters in Computer Science &bull; GPA: 3.8</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest block mb-3">Connection</span>
+        <div class="space-y-1 text-body-md font-body-md text-on-surface-variant">
+          <p>
+            <button onclick="navigator.clipboard.writeText('harshsoni.06@outlook.com'); this.textContent='Copied!'; setTimeout(()=>this.textContent='harshsoni.06@outlook.com',2000)" class="hover:text-primary transition-colors cursor-pointer text-left">harshsoni.06@outlook.com</button>
           </p>
-          <a class="inline-flex items-center space-x-3 px-6 py-3 bg-gradient-to-r from-primary-container to-primary text-on-primary font-bold font-headline rounded-sm uppercase tracking-widest hover:brightness-110 transition-all text-xs" href="https://dev.to/${DEVTO_USERNAME}" target="_blank" rel="noopener noreferrer">
-            <span>Visit DEV.to Profile</span>
-            <span class="material-symbols-outlined text-sm">open_in_new</span>
+          <p>
+            <button onclick="navigator.clipboard.writeText('+13523284717'); this.textContent='Copied!'; setTimeout(()=>this.textContent='+1 (352) 328-4717',2000)" class="hover:text-primary transition-colors cursor-pointer text-left">+1 (352) 328-4717</button>
+          </p>
+          <p class="pt-2 flex gap-4">
+            <a class="hover:text-primary transition-colors inline-flex items-center gap-1 font-semibold" href="https://linkedin.com/in/harshh06" target="_blank" rel="noopener noreferrer">LinkedIn <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+            <a class="hover:text-primary transition-colors inline-flex items-center gap-1 font-semibold" href="https://github.com/harshh06" target="_blank" rel="noopener noreferrer">GitHub <span class="material-symbols-outlined text-xs">open_in_new</span></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap"/>
+
+  <!-- Skills (Renamed and kept simple) -->
+  <section class="mb-section-gap" id="skills">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-6 tracking-widest uppercase">Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-body-md font-body-md">
+      <div>
+        <span class="font-semibold text-primary block mb-1">Languages</span>
+        <p class="text-on-surface-variant">Python, TypeScript, JavaScript (ES6+), C++, Java, SQL</p>
+      </div>
+      <div>
+        <span class="font-semibold text-primary block mb-1">Frameworks &amp; Libraries</span>
+        <p class="text-on-surface-variant">React, Next.js, Redux, FastAPI, Flask, Node.js, PyTorch, LangGraph, LangChain, Tailwind CSS</p>
+      </div>
+      <div>
+        <span class="font-semibold text-primary block mb-1">Tools &amp; Platforms</span>
+        <p class="text-on-surface-variant">Docker, Git, PostgreSQL, MongoDB, Redis, Pinecone, GCP Cloud Run, AWS, GitHub Actions, Linux</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="experience"/>
+
+  <!-- Experience -->
+  <section class="mb-section-gap">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-8 tracking-widest uppercase">Experience</h2>
+    <div class="space-y-12">
+
+      <!-- Role 1 -->
+      <div class="experience-card">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
+          <h3 class="text-headline-md font-headline-md text-primary">Software Development Engineer</h3>
+          <span class="text-body-md font-body-md text-on-surface-variant">Attentive.ai &bull; Noida, India &bull; Jun 2023 — Jun 2025</span>
+        </div>
+        <!-- First two lines/bullets shown by default -->
+        <ul class="space-y-3 text-body-lg font-body-lg text-on-surface-variant pl-4 border-l border-outline-variant/30">
+          <li>Diagnosed a critical 12s settings-page load bottleneck impacting 500+ enterprise clients; independently owned and shipped a layered fix using React code-splitting, debounced zoning calculations, and IndexedDB caching, reducing load time by 86% (to 1.7s) and directly reducing client churn risk.</li>
+          <li>Identified slow construction document Q&A as a top client pain point and independently built Beam GPT end-to-end: an LLM-powered assistant using RAG (Pinecone vector DB + OpenAI GPT-4) that cut task completion time by 60% for 500+ users.</li>
+        </ul>
+        <!-- Collapsible content -->
+        <div class="collapsible-content hidden mt-3">
+          <ul class="space-y-3 text-body-lg font-body-lg text-on-surface-variant pl-4 border-l border-outline-variant/30">
+            <li>Built a hierarchical folder system on the frontend enabling 1,000+ takeoff documents per client, implementing optimistic UI updates that reduced folder navigation latency by 40%.</li>
+            <li>Consolidated 8 fragmented data sources by owning a full rebuild of the CSM Dashboard and RESTful API integration, boosting team productivity by 30%.</li>
+            <li>Redesigned Feature Panel with TanStack Virtual windowing and Intersection Observer for viewport-based rendering, lazy-loading via React.lazy + Suspense and Next.js dynamic imports.</li>
+          </ul>
+        </div>
+        <button onclick="toggleCollapse(this)" class="text-body-md text-primary hover:underline font-semibold mt-3 flex items-center gap-1">
+          Show More <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>
+        </button>
+      </div>
+
+      <!-- Role 2 -->
+      <div class="experience-card">
+        <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-4">
+          <h3 class="text-headline-md font-headline-md text-primary">Software Engineer (Specialist Programmer)</h3>
+          <span class="text-body-md font-body-md text-on-surface-variant">Infosys &bull; Bangalore, India &bull; Feb 2022 — Jun 2023</span>
+        </div>
+        <ul class="space-y-3 text-body-lg font-body-lg text-on-surface-variant pl-4 border-l border-outline-variant/30">
+          <li>Migrated a CLI-based internal tool to a React/Flask web app for Apple IS&amp;T, replacing manual workflows with a browser UI backed by Redis caching to reduce repeated query latency.</li>
+          <li>Contributed 5 merged PRs to neo4j-graphql-java resolving race conditions in the query executor and hardening GraphQL schema validation, improving concurrency correctness across 3 internal teams.</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="projects"/>
+
+  <!-- Projects (Streaming Platform removed) -->
+  <section class="mb-section-gap">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-8 tracking-widest uppercase">Projects</h2>
+    <div class="space-y-16">
+
+      <!-- Project 1 -->
+      <article>
+        <h3 class="text-headline-lg font-headline-lg text-primary mb-3">Automated Multi-Agent PR Reviewer (PR Sentinel)</h3>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
+          A production-deployed GitHub App on GCP Cloud Run that automates PR reviews with zero human intervention. Architected a multi-agent RAG pipeline using LangGraph that spawns parallel sub-agents (Security, Performance, and Code Quality) with autonomous tool-calling loops over Pinecone vector indexes. Engineered with Celery/Redis for durable queue processing, HMACS-SHA256 signature verification, and namespace-scoped incremental vector ingestion reducing ingestion time by ~90%.
+        </p>
+        <div class="flex flex-wrap gap-2.5 mb-4">
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">FastAPI</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">LangGraph</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Celery</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Redis</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Pinecone</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">GCP Cloud Run</span>
+        </div>
+        <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-1" href="https://github.com/harshh06/automated-pr-reviewer" target="_blank" rel="noopener noreferrer">
+          View on GitHub <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </article>
+
+      <!-- Project 2 -->
+      <article>
+        <h3 class="text-headline-lg font-headline-lg text-primary mb-3">AI-Powered Histopathology Scoring System</h3>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
+          A diagnostic tool for pancreatic tissue analysis built by fine-tuning ResNet18 (transfer learning on ImageNet weights) to achieve 4-metric pathology scoring, reducing manual analysis time by 40%. Engineered a client-side upload queue with a FIFO buffer to handle 50MB+ TIFF batches, preventing server RAM exhaustion by throttling concurrent FastAPI requests via async/await.
+        </p>
+        <div class="flex flex-wrap gap-2.5 mb-4">
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Next.js</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">FastAPI</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">PyTorch</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">ResNet18</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">PostgreSQL</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Docker</span>
+        </div>
+        <div class="flex items-center gap-5">
+          <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-1" href="https://github.com/harshh06/image-scoring-app" target="_blank" rel="noopener noreferrer">
+            View on GitHub <span class="material-symbols-outlined text-sm">arrow_forward</span>
+          </a>
+          <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-1" href="https://image-scoring-app.vercel.app" target="_blank" rel="noopener noreferrer">
+            Live Demo <span class="material-symbols-outlined text-sm">arrow_forward</span>
           </a>
         </div>
-      `;
+      </article>
 
-      try {
-        const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`);
-        if (!response.ok) throw new Error('Failed to fetch articles');
-        
-        const articles = await response.json();
-        if (!articles || articles.length === 0) {
-          container.innerHTML = fallbackHTML;
-          return;
-        }
+    </div>
+  </section>
 
-        // Render articles (limit to 3 latest for best portfolio aesthetics)
-        container.innerHTML = articles.slice(0, 3).map(article => {
-          const pubDate = new Date(article.published_at).toLocaleDateString('en-US', {
-            month: 'short',
-            day: 'numeric',
-            year: 'numeric'
-          });
-          
-          const tagsList = article.tag_list.slice(0, 3).map(tag => 
-            `<span class="text-[10px] px-2 py-1 border border-outline-variant/30 text-on-surface-variant font-label rounded-sm">#${tag}</span>`
-          ).join(' ');
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="writing"/>
 
-          return `
-            <div class="group bg-surface-container-low rounded-sm overflow-hidden flex flex-col hover:translate-y-[-8px] transition-all duration-500 border border-outline-variant/10">
-              ${article.cover_image ? `
-              <div class="aspect-video bg-surface-container-high relative overflow-hidden">
-                <img class="w-full h-full object-cover grayscale opacity-50 group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-700" src="${article.cover_image}" alt="${article.title}">
-                <div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
-              </div>
-              ` : ''}
-              <div class="p-8 flex-grow flex flex-col">
-                <div class="flex items-center justify-between mb-4 text-xs font-label text-on-surface-variant">
-                  <span>${pubDate}</span>
-                  <span class="flex items-center gap-1">
-                    <span class="material-symbols-outlined text-[14px]">schedule</span>
-                    ${article.reading_time_minutes} min read
-                  </span>
-                </div>
-                <h3 class="font-headline text-2xl font-bold mb-4 line-clamp-2 group-hover:text-primary transition-colors">${article.title}</h3>
-                <p class="text-on-surface-variant text-sm leading-relaxed mb-6 line-clamp-3">${article.description || ''}</p>
-                <div class="flex flex-wrap gap-2 mb-8 mt-auto">
-                  ${tagsList}
-                </div>
-              </div>
-              <div class="px-8 pb-8 flex justify-between items-center mt-auto border-t border-outline-variant/5 pt-6">
-                <a class="text-primary font-headline text-sm font-bold flex items-center space-x-2 group/link" href="${article.url}" target="_blank" rel="noopener noreferrer">
-                  <span>Read Article</span>
-                  <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
-                </a>
-                <div class="flex items-center gap-4 text-xs text-on-surface-variant">
-                  <span class="flex items-center gap-1" title="Reactions">
-                    <span class="material-symbols-outlined text-sm text-primary">favorite</span> ${article.public_reactions_count}
-                  </span>
-                  ${article.comments_count > 0 ? `
-                  <span class="flex items-center gap-1" title="Comments">
-                    <span class="material-symbols-outlined text-sm text-primary">chat</span> ${article.comments_count}
-                  </span>
-                  ` : ''}
-                </div>
-              </div>
-            </div>
-          `;
-        }).join('');
+  <!-- Writing / Blog -->
+  <section class="mb-section-gap">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-8 tracking-widest uppercase">Writing</h2>
+    <div id="devto-articles-container" class="space-y-12">
+      <!-- Loading skeleton -->
+      <div class="animate-pulse space-y-4">
+        <div class="flex justify-between items-baseline">
+          <div class="h-6 bg-surface-container-high rounded w-2/3"></div>
+          <div class="h-4 bg-surface-container-high rounded w-24"></div>
+        </div>
+        <div class="h-4 bg-surface-container-high rounded w-full"></div>
+        <div class="h-4 bg-surface-container-high rounded w-4/5"></div>
+      </div>
+      <div class="animate-pulse space-y-4">
+        <div class="flex justify-between items-baseline">
+          <div class="h-6 bg-surface-container-high rounded w-1/2"></div>
+          <div class="h-4 bg-surface-container-high rounded w-24"></div>
+        </div>
+        <div class="h-4 bg-surface-container-high rounded w-full"></div>
+        <div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+      </div>
+    </div>
+  </section>
 
-      } catch (error) {
-        console.error('Error fetching dev.to articles:', error);
-        container.innerHTML = fallbackHTML;
-      }
-    };
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="contact"/>
 
-    fetchArticles();
+  <!-- Contact -->
+  <section class="mb-20">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-6 tracking-widest uppercase">Get In Touch</h2>
+    <p class="text-headline-md font-headline-md text-primary mb-6">
+      Let's architect something extraordinary.
+    </p>
+    <div class="bg-surface-container-low p-8 md:p-10 rounded-lg border border-outline-variant/30">
+      <form id="contact-form" action="https://formspree.io/f/mojkzewb" method="POST" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="space-y-1">
+          <label class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">Name</label>
+          <input name="name" required class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:ring-0 focus:border-primary px-0 py-2.5 transition-colors text-on-surface font-body-md" placeholder="John Doe" type="text"/>
+        </div>
+        <div class="space-y-1">
+          <label class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">Email</label>
+          <input name="email" required class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:ring-0 focus:border-primary px-0 py-2.5 transition-colors text-on-surface font-body-md" placeholder="john@example.com" type="email"/>
+        </div>
+        <div class="md:col-span-2 space-y-1">
+          <label class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">Message</label>
+          <textarea name="message" required class="w-full bg-transparent border-0 border-b border-outline-variant/50 focus:ring-0 focus:border-primary px-0 py-2.5 transition-colors text-on-surface font-body-md" placeholder="Discussing a new project or role..." rows="3"></textarea>
+        </div>
+        <div class="md:col-span-2 pt-2">
+          <button type="submit" class="w-full py-3 bg-primary text-on-primary font-semibold font-body-md rounded-sm uppercase tracking-widest hover:opacity-90 transition-all duration-200">Send Message</button>
+        </div>
+        <div id="form-success" class="hidden md:col-span-2 py-3 text-center text-primary font-body-md border border-outline-variant/30 bg-surface-container rounded-sm">
+          Thanks! I'll get back to you soon.
+        </div>
+      </form>
+    </div>
+  </section>
 
-    const btn = document.getElementById('mobile-menu-btn');
-    const menu = document.getElementById('mobile-menu');
-    btn.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-    // Close menu when a link is clicked
-    menu.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        menu.classList.add('hidden');
-      });
-    });
+</main>
 
-    // Contact Form Handling
-    const form = document.getElementById('contact-form');
-    const successMsg = document.getElementById('form-success');
-    if (form) {
-      form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        try {
-          const response = await fetch(form.action, {
-            method: form.method,
-            body: data,
-            headers: {
-                'Accept': 'application/json'
-            }
-          });
-          if (response.ok) {
-            form.reset();
-            successMsg.classList.remove('hidden');
-            setTimeout(() => successMsg.classList.add('hidden'), 5000);
-          } else {
-            alert('Oops! There was a problem submitting your form');
-          }
-        } catch (error) {
-          alert('Oops! There was a problem submitting your form');
-        }
-      });
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-10 border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[800px] mx-auto px-6 md:px-0">
+  <div class="text-body-md font-body-md text-on-surface-variant mb-4 md:mb-0">
+    &copy; 2025 Harsh Soni. Built with precision.
+  </div>
+  <div class="flex space-x-6">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://github.com/harshh06" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://linkedin.com/in/harshh06" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://dev.to/harsh06" target="_blank" rel="noopener noreferrer">DEV.to</a>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Config
+  const DEVTO_USERNAME = 'harsh06';
+
+  // Fade-in Navbar brand name when scrolling down past hero to avoid double header view
+  const navbarBrand = document.getElementById('navbar-brand');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 150) {
+      navbarBrand.classList.remove('opacity-0');
+      navbarBrand.classList.add('opacity-100');
+    } else {
+      navbarBrand.classList.remove('opacity-100');
+      navbarBrand.classList.add('opacity-0');
     }
   });
+
+  // Fetch DEV.to Articles
+  const fetchArticles = async () => {
+    const container = document.getElementById('devto-articles-container');
+    if (!container) return;
+
+    const fallbackHTML = `
+      <div class="text-center py-12">
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-6">
+          I write about software engineering, system architecture, and modern full-stack systems on DEV Community.
+        </p>
+        <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-2" href="https://dev.to/${DEVTO_USERNAME}" target="_blank" rel="noopener noreferrer">
+          Visit DEV.to Profile <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    `;
+
+    try {
+      const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`);
+      if (!response.ok) throw new Error('Failed to fetch articles');
+
+      const articles = await response.json();
+      if (!articles || articles.length === 0) {
+        container.innerHTML = fallbackHTML;
+        return;
+      }
+
+      // Render articles in editorial list style
+      container.innerHTML = articles.slice(0, 5).map(article => {
+        const pubDate = new Date(article.published_at).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        });
+
+        return `
+          <article>
+            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-3">
+              <h3 class="text-headline-md font-headline-md text-primary">
+                <a class="article-link" href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a>
+              </h3>
+              <span class="text-body-md font-body-md text-on-surface-variant whitespace-nowrap mt-2 md:mt-0">${pubDate}</span>
+            </div>
+            <p class="text-body-lg font-body-lg text-on-surface-variant mb-3">${article.description || ''}</p>
+            <div class="flex items-center gap-4 text-body-md font-body-md text-on-surface-variant">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                ${article.reading_time_minutes} min read
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">favorite</span>
+                ${article.public_reactions_count}
+              </span>
+              ${article.comments_count > 0 ? `
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                ${article.comments_count}
+              </span>
+              ` : ''}
+            </div>
+          </article>
+        `;
+      }).join('');
+
+    } catch (error) {
+      console.error('Error fetching dev.to articles:', error);
+      container.innerHTML = fallbackHTML;
+    }
+  };
+
+  fetchArticles();
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+    });
+  });
+
+  // Contact Form Handling
+  const form = document.getElementById('contact-form');
+  const successMsg = document.getElementById('form-success');
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: data,
+          headers: { 'Accept': 'application/json' }
+        });
+        if (response.ok) {
+          form.reset();
+          successMsg.classList.remove('hidden');
+          setTimeout(() => successMsg.classList.add('hidden'), 5000);
+        } else {
+          alert('Oops! There was a problem submitting your form');
+        }
+      } catch (error) {
+        alert('Oops! There was a problem submitting your form');
+      }
+    });
+  }
+
+  // Scroll-based fade-in for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(section);
+  });
+});
+
+// Expand/Collapse Work Experience Details
+function toggleCollapse(btn) {
+  const card = btn.closest('.experience-card');
+  const content = card.querySelector('.collapsible-content');
+  if (content.classList.contains('hidden')) {
+    content.classList.remove('hidden');
+    btn.innerHTML = 'Show Less <span class="material-symbols-outlined text-sm">keyboard_arrow_up</span>';
+  } else {
+    content.classList.add('hidden');
+    btn.innerHTML = 'Show More <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>';
+  }
+}
 </script>
-</body></html>
+</body>
+</html>
