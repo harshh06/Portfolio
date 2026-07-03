@@ -126,6 +126,15 @@
   .article-link:hover {
     background-size: 100% 1px;
   }
+
+  /* Paper summary transition animation */
+  .paper-summary {
+    animation: slideDown 0.25s ease-out forwards;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 </head>
 <body class="bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
@@ -141,7 +150,7 @@
   <div class="hidden md:flex items-center space-x-8">
     <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#experience">Experience</a>
     <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#projects">Projects</a>
-    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#writing">Writing</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="writing.html">Writing</a>
     <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
     <a class="text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm hover:bg-primary hover:text-on-primary transition-all duration-200" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
   </div>
@@ -154,7 +163,7 @@
 <div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-t border-outline-variant px-margin-page py-4 space-y-4">
   <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#experience">Experience</a>
   <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#projects">Projects</a>
-  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#writing">Writing</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="writing.html">Writing</a>
   <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="#contact">Contact</a>
   <a class="inline-block mt-2 text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
 </div>
@@ -198,28 +207,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Divider -->
-  <hr class="border-t border-outline-variant opacity-30 mb-element-gap"/>
-
-  <!-- Skills (Renamed and kept simple) -->
-  <section class="mb-section-gap" id="skills">
-    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-6 tracking-widest uppercase">Skills</h2>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-body-md font-body-md">
-      <div>
-        <span class="font-semibold text-primary block mb-1">Languages</span>
-        <p class="text-on-surface-variant">Python, TypeScript, JavaScript (ES6+), C++, Java, SQL</p>
-      </div>
-      <div>
-        <span class="font-semibold text-primary block mb-1">Frameworks &amp; Libraries</span>
-        <p class="text-on-surface-variant">React, Next.js, Redux, FastAPI, Flask, Node.js, PyTorch, LangGraph, LangChain, Tailwind CSS</p>
-      </div>
-      <div>
-        <span class="font-semibold text-primary block mb-1">Tools &amp; Platforms</span>
-        <p class="text-on-surface-variant">Docker, Git, PostgreSQL, MongoDB, Redis, Pinecone, GCP Cloud Run, AWS, GitHub Actions, Linux</p>
-      </div>
-    </div>
-  </section>
 
   <!-- Divider -->
   <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="experience"/>
@@ -278,7 +265,7 @@
 
       <!-- Project 1 -->
       <article>
-        <h3 class="text-headline-lg font-headline-lg text-primary mb-3">Automated Multi-Agent PR Reviewer (PR Sentinel)</h3>
+        <h3 class="text-headline-md font-headline-md text-primary mb-3">Automated Multi-Agent PR Reviewer (PR Sentinel)</h3>
         <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
           A production-deployed GitHub App on GCP Cloud Run that automates PR reviews with zero human intervention. Architected a multi-agent RAG pipeline using LangGraph that spawns parallel sub-agents (Security, Performance, and Code Quality) with autonomous tool-calling loops over Pinecone vector indexes. Engineered with Celery/Redis for durable queue processing, HMACS-SHA256 signature verification, and namespace-scoped incremental vector ingestion reducing ingestion time by ~90%.
         </p>
@@ -297,7 +284,7 @@
 
       <!-- Project 2 -->
       <article>
-        <h3 class="text-headline-lg font-headline-lg text-primary mb-3">AI-Powered Histopathology Scoring System</h3>
+        <h3 class="text-headline-md font-headline-md text-primary mb-3">AI-Powered Histopathology Scoring System</h3>
         <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
           A diagnostic tool for pancreatic tissue analysis built by fine-tuning ResNet18 (transfer learning on ImageNet weights) to achieve 4-metric pathology scoring, reducing manual analysis time by 40%. Engineered a client-side upload queue with a FIFO buffer to handle 50MB+ TIFF batches, preventing server RAM exhaustion by throttling concurrent FastAPI requests via async/await.
         </p>
@@ -326,7 +313,7 @@
   <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="writing"/>
 
   <!-- Writing / Blog -->
-  <section class="mb-section-gap">
+  <section class="mb-section-gap" id="writing">
     <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-8 tracking-widest uppercase">Writing</h2>
     <div id="devto-articles-container" class="space-y-12">
       <!-- Loading skeleton -->
@@ -345,6 +332,34 @@
         </div>
         <div class="h-4 bg-surface-container-high rounded w-full"></div>
         <div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+      </div>
+    </div>
+    
+    <div class="mt-12 text-center">
+      <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-2" href="writing.html">
+        View All Blog Posts & Research Summaries <span class="material-symbols-outlined text-sm">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Divider -->
+  <hr class="border-t border-outline-variant opacity-30 mb-element-gap" id="skills"/>
+
+  <!-- Skills (Renamed and kept simple) -->
+  <section class="mb-section-gap">
+    <h2 class="text-label-caps font-label-caps text-on-surface-variant mb-6 tracking-widest uppercase">Skills</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-body-md font-body-md">
+      <div>
+        <span class="font-semibold text-primary block mb-1">Languages</span>
+        <p class="text-on-surface-variant">Python, TypeScript, JavaScript (ES6+), C++, Java, SQL</p>
+      </div>
+      <div>
+        <span class="font-semibold text-primary block mb-1">Frameworks &amp; Libraries</span>
+        <p class="text-on-surface-variant">React, Next.js, Redux, FastAPI, Flask, Node.js, PyTorch, LangGraph, LangChain, Tailwind CSS</p>
+      </div>
+      <div>
+        <span class="font-semibold text-primary block mb-1">Tools &amp; Platforms</span>
+        <p class="text-on-surface-variant">Docker, Git, PostgreSQL, MongoDB, Redis, Pinecone, GCP Cloud Run, AWS, GitHub Actions, Linux</p>
       </div>
     </div>
   </section>
@@ -441,7 +456,7 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Render articles in editorial list style
+      // Render articles in spacious list style
       container.innerHTML = articles.slice(0, 5).map(article => {
         const pubDate = new Date(article.published_at).toLocaleDateString('en-US', {
           month: 'short',
@@ -450,15 +465,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         return `
-          <article>
+          <article class="border-b border-outline-variant/20 pb-8 last:border-0 last:pb-0 animate-fade-up">
             <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-3">
               <h3 class="text-headline-md font-headline-md text-primary">
                 <a class="article-link" href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a>
               </h3>
               <span class="text-body-md font-body-md text-on-surface-variant whitespace-nowrap mt-2 md:mt-0">${pubDate}</span>
             </div>
-            <p class="text-body-lg font-body-lg text-on-surface-variant mb-3">${article.description || ''}</p>
-            <div class="flex items-center gap-4 text-body-md font-body-md text-on-surface-variant">
+            <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">${article.description || ''}</p>
+            <div class="flex items-center gap-4 text-body-md font-body-md text-on-surface-variant/70">
               <span class="flex items-center gap-1">
                 <span class="material-symbols-outlined text-sm">schedule</span>
                 ${article.reading_time_minutes} min read
@@ -554,6 +569,7 @@ function toggleCollapse(btn) {
     btn.innerHTML = 'Show More <span class="material-symbols-outlined text-sm">keyboard_arrow_down</span>';
   }
 }
+
 </script>
 </body>
 </html>

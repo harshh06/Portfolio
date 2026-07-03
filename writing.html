@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Writings & Research — Harsh Soni</title>
+<meta name="description" content="Thoughts, articles, and summaries of research papers read by Harsh Soni."/>
+<!-- Google Fonts & Material Symbols -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-container": "#1c1b1b",
+            "inverse-primary": "#c8c6c5",
+            "tertiary": "#000000",
+            "on-primary-fixed-variant": "#474746",
+            "primary-fixed": "#e5e2e1",
+            "on-tertiary-fixed-variant": "#484645",
+            "error-container": "#ffdad6",
+            "surface-container-lowest": "#ffffff",
+            "background": "#fbf9f9",
+            "surface-container": "#efeded",
+            "on-error-container": "#93000a",
+            "tertiary-fixed": "#e6e2df",
+            "inverse-surface": "#303031",
+            "surface": "#fbf9f9",
+            "primary": "#000000",
+            "on-tertiary": "#ffffff",
+            "on-secondary-fixed": "#061e27",
+            "on-primary-fixed": "#1c1b1b",
+            "secondary-container": "#cce3f0",
+            "on-primary": "#ffffff",
+            "surface-variant": "#e4e2e2",
+            "on-error": "#ffffff",
+            "outline": "#747878",
+            "surface-tint": "#5f5e5e",
+            "surface-container-high": "#e9e8e7",
+            "surface-bright": "#fbf9f9",
+            "on-secondary": "#ffffff",
+            "surface-dim": "#dbdad9",
+            "on-secondary-container": "#506670",
+            "on-surface": "#1b1c1c",
+            "secondary-fixed": "#cfe6f3",
+            "secondary-fixed-dim": "#b3cad6",
+            "surface-container-highest": "#e4e2e2",
+            "outline-variant": "#c4c7c7",
+            "on-primary-container": "#858383",
+            "surface-container-low": "#f5f3f3",
+            "on-background": "#1b1c1c",
+            "inverse-on-surface": "#f2f0f0",
+            "tertiary-container": "#1c1b1a",
+            "on-surface-variant": "#444748",
+            "on-secondary-fixed-variant": "#344a54",
+            "on-tertiary-fixed": "#1c1b1a",
+            "secondary": "#4c616c",
+            "tertiary-fixed-dim": "#cac6c4",
+            "on-tertiary-container": "#868382",
+            "primary-fixed-dim": "#c8c6c5",
+            "error": "#ba1a1a"
+          },
+          borderRadius: {
+            "DEFAULT": "0.25rem",
+            "lg": "0.5rem",
+            "xl": "0.75rem",
+            "full": "9999px"
+          },
+          spacing: {
+            "section-gap": "100px",
+            "element-gap": "24px",
+            "margin-page": "max(24px, 6vw)",
+            "container-max": "1100px"
+          },
+          fontFamily: {
+            "label-caps": ["Inter"],
+            "headline-lg": ["\"Source Serif 4\""],
+            "display": ["\"Source Serif 4\""],
+            "headline-md": ["\"Source Serif 4\""],
+            "body-lg": ["Inter"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "label-caps": ["11px", { "lineHeight": "1", "letterSpacing": "0.12em", "fontWeight": "600" }],
+            "headline-lg": ["36px", { "lineHeight": "1.2", "fontWeight": "600" }],
+            "display": ["56px", { "lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+            "headline-md": ["22px", { "lineHeight": "1.4", "fontWeight": "500" }],
+            "body-lg": ["17px", { "lineHeight": "1.7", "fontWeight": "400" }],
+            "body-md": ["15px", { "lineHeight": "1.6", "fontWeight": "400" }]
+          }
+        }
+      }
+    }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  body {
+    scroll-behavior: smooth;
+  }
+  /* Subtle fade-in animation */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .animate-fade-up {
+    animation: fadeUp 0.5s ease-out both;
+  }
+
+  /* Article link hover underline animation */
+  .article-link {
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    transition: background-size 0.3s ease;
+  }
+  .article-link:hover {
+    background-size: 100% 1px;
+  }
+
+  /* Paper summary transition animation */
+  .paper-summary {
+    animation: slideDown 0.25s ease-out forwards;
+  }
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+
+<!-- TopNavBar -->
+<nav class="bg-surface-container-lowest w-full sticky top-0 border-b border-outline-variant z-50">
+<div class="flex justify-between items-center h-16 max-w-7xl mx-auto px-margin-page">
+  <!-- Brand name links back to home -->
+  <a id="navbar-brand" class="text-headline-md font-headline-md font-semibold text-primary transition-opacity duration-300 opacity-0" href="index.html">
+    Harsh Soni
+  </a>
+  <!-- Desktop Nav -->
+  <div class="hidden md:flex items-center space-x-8">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#experience">Experience</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#projects">Projects</a>
+    <a class="text-primary font-body-md font-semibold transition-colors duration-200" href="writing.html">Writing</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#contact">Contact</a>
+    <a class="text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm hover:bg-primary hover:text-on-primary transition-all duration-200" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
+  </div>
+  <!-- Mobile Menu Button -->
+  <button id="mobile-menu-btn" class="md:hidden text-primary">
+    <span class="material-symbols-outlined">menu</span>
+  </button>
+</div>
+<!-- Mobile Dropdown Menu -->
+<div id="mobile-menu" class="hidden md:hidden bg-surface-container-lowest border-t border-outline-variant px-margin-page py-4 space-y-4">
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#experience">Experience</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#projects">Projects</a>
+  <a class="block text-primary font-body-md font-semibold transition-colors duration-200" href="writing.html">Writing</a>
+  <a class="block text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="index.html#contact">Contact</a>
+  <a class="inline-block mt-2 text-body-md font-body-md font-semibold text-primary border border-primary px-4 py-1.5 rounded-sm" href="https://raw.githubusercontent.com/harshh06/Portfolio/main/Harsh%20Soni.pdf" download="Harsh_Soni_Resume.pdf">Resume</a>
+</div>
+</nav>
+
+<!-- Main Content Canvas (Single Column) -->
+<main class="max-w-[800px] mx-auto px-6 md:px-0 py-16 md:py-20">
+
+  <!-- Header / Intro -->
+  <header class="mb-12 animate-fade-up">
+    <a class="text-primary font-body-md font-semibold hover:underline inline-flex items-center gap-1 mb-6" href="index.html">
+      <span class="material-symbols-outlined text-sm">arrow_back</span> Back to Portfolio
+    </a>
+    <h1 class="text-headline-lg font-display text-primary mb-4">Writings & Research</h1>
+    <p class="text-body-lg font-body-lg text-on-surface-variant leading-relaxed">
+      A collection of articles on software engineering and system architecture, alongside reviews and key takeaways from computer science research papers I've read.
+    </p>
+  </header>
+
+  <!-- Tab Switches -->
+  <div class="flex gap-8 border-b border-outline-variant/30 pb-3 mb-8 animate-fade-up">
+    <button id="tab-blogs" class="text-headline-md font-headline-md font-medium pb-2 border-b-2 border-primary text-primary transition-all duration-200 focus:outline-none cursor-pointer">
+      Blog Posts
+    </button>
+    <button id="tab-research" class="text-headline-md font-headline-md font-medium pb-2 border-b-2 border-transparent text-on-surface-variant hover:text-primary transition-all duration-200 focus:outline-none cursor-pointer flex items-baseline gap-2">
+      Research Summaries
+      <span class="text-[9px] font-semibold text-primary/70 bg-primary/10 px-2 py-0.5 rounded-full uppercase tracking-wider font-sans">Just Started</span>
+    </button>
+  </div>
+
+  <!-- Writing / Blog & Research summaries -->
+  <section class="mb-20 animate-fade-up" id="writings-list">
+    
+    <!-- Tab 1 Content: Blogs -->
+    <div id="tab-blogs-content" class="space-y-12">
+      <p class="text-body-md text-on-surface-variant mb-6">Thoughts, tutorials, and deep-dives published on DEV Community.</p>
+      
+      <div id="devto-articles-container" class="space-y-12">
+        <!-- Loading skeleton -->
+        <div class="animate-pulse space-y-4">
+          <div class="flex justify-between items-baseline">
+            <div class="h-6 bg-surface-container-high rounded w-2/3"></div>
+            <div class="h-4 bg-surface-container-high rounded w-24"></div>
+          </div>
+          <div class="h-4 bg-surface-container-high rounded w-full"></div>
+          <div class="h-4 bg-surface-container-high rounded w-4/5"></div>
+        </div>
+        <div class="animate-pulse space-y-4">
+          <div class="flex justify-between items-baseline">
+            <div class="h-6 bg-surface-container-high rounded w-1/2"></div>
+            <div class="h-4 bg-surface-container-high rounded w-24"></div>
+          </div>
+          <div class="h-4 bg-surface-container-high rounded w-full"></div>
+          <div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tab 2 Content: Research Papers -->
+    <div id="tab-research-content" class="hidden space-y-12">
+      <p class="text-body-md text-on-surface-variant mb-6">Takeaways and direct summaries from research papers in AI, distributed systems, and modern databases.</p>
+      
+      <div id="research-papers-container" class="space-y-12">
+        <!-- Loading skeleton -->
+        <div class="animate-pulse space-y-4">
+          <div class="flex justify-between items-baseline">
+            <div class="h-6 bg-surface-container-high rounded w-2/3"></div>
+            <div class="h-4 bg-surface-container-high rounded w-24"></div>
+            </div>
+          <div class="h-4 bg-surface-container-high rounded w-full"></div>
+          <div class="h-4 bg-surface-container-high rounded w-4/5"></div>
+        </div>
+        <div class="animate-pulse space-y-4">
+          <div class="flex justify-between items-baseline">
+            <div class="h-6 bg-surface-container-high rounded w-1/2"></div>
+            <div class="h-4 bg-surface-container-high rounded w-24"></div>
+          </div>
+          <div class="h-4 bg-surface-container-high rounded w-full"></div>
+          <div class="h-4 bg-surface-container-high rounded w-3/4"></div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-surface-container-lowest w-full py-10 border-t border-outline-variant">
+<div class="flex flex-col md:flex-row justify-between items-center max-w-[800px] mx-auto px-6 md:px-0">
+  <div class="text-body-md font-body-md text-on-surface-variant mb-4 md:mb-0">
+    &copy; 2025 Harsh Soni. Built with precision.
+  </div>
+  <div class="flex space-x-6">
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://github.com/harshh06" target="_blank" rel="noopener noreferrer">GitHub</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://linkedin.com/in/harshh06" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a class="text-on-surface-variant font-body-md hover:text-primary transition-colors duration-200" href="https://dev.to/harsh06" target="_blank" rel="noopener noreferrer">DEV.to</a>
+  </div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const DEVTO_USERNAME = 'harsh06';
+
+  // Fade-in Navbar brand name when scrolling down past hero to avoid double header view
+  const navbarBrand = document.getElementById('navbar-brand');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      navbarBrand.classList.remove('opacity-0');
+      navbarBrand.classList.add('opacity-100');
+    } else {
+      navbarBrand.classList.remove('opacity-100');
+      navbarBrand.classList.add('opacity-0');
+    }
+  });
+
+  // Fetch DEV.to Articles
+  const fetchArticles = async () => {
+    const container = document.getElementById('devto-articles-container');
+    if (!container) return;
+
+    const fallbackHTML = `
+      <div class="text-center py-12">
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-6">
+          I write about software engineering, system architecture, and modern full-stack systems on DEV Community.
+        </p>
+        <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-2" href="https://dev.to/${DEVTO_USERNAME}" target="_blank" rel="noopener noreferrer">
+          Visit DEV.to Profile <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </div>
+    `;
+
+    try {
+      const response = await fetch(`https://dev.to/api/articles?username=${DEVTO_USERNAME}`);
+      if (!response.ok) throw new Error('Failed to fetch articles');
+
+      const articles = await response.json();
+      if (!articles || articles.length === 0) {
+        container.innerHTML = fallbackHTML;
+        return;
+      }
+
+      // Render articles (up to 10 articles on the dedicated page)
+      container.innerHTML = articles.slice(0, 10).map(article => {
+        const pubDate = new Date(article.published_at).toLocaleDateString('en-US', {
+          month: 'short',
+          day: 'numeric',
+          year: 'numeric'
+        });
+
+        return `
+          <article class="border-b border-outline-variant/20 pb-8 last:border-0 last:pb-0 animate-fade-up">
+            <div class="flex flex-col md:flex-row md:justify-between md:items-baseline mb-3">
+              <h3 class="text-headline-md font-headline-md text-primary">
+                <a class="article-link" href="${article.url}" target="_blank" rel="noopener noreferrer">${article.title}</a>
+              </h3>
+              <span class="text-body-md font-body-md text-on-surface-variant whitespace-nowrap mt-2 md:mt-0">${pubDate}</span>
+            </div>
+            <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">${article.description || ''}</p>
+            <div class="flex items-center gap-4 text-body-md font-body-md text-on-surface-variant/70">
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">schedule</span>
+                ${article.reading_time_minutes} min read
+              </span>
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">favorite</span>
+                ${article.public_reactions_count}
+              </span>
+              ${article.comments_count > 0 ? `
+              <span class="flex items-center gap-1">
+                <span class="material-symbols-outlined text-sm">chat</span>
+                ${article.comments_count}
+              </span>
+              ` : ''}
+            </div>
+          </article>
+        `;
+      }).join('');
+
+    } catch (error) {
+      console.error('Error fetching dev.to articles:', error);
+      container.innerHTML = fallbackHTML;
+    }
+  };
+
+  // Fetch Research Papers
+  const fetchResearchPapers = async () => {
+    const container = document.getElementById('research-papers-container');
+    if (!container) return;
+
+    const fallbackHTML = `
+      <div class="text-center py-12">
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-4">
+          Failed to load research papers.
+        </p>
+      </div>
+    `;
+
+    try {
+      const response = await fetch('./papers.json');
+      if (!response.ok) throw new Error('Failed to fetch research papers');
+
+      const papers = await response.json();
+      if (!papers || papers.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-12">
+            <p class="text-body-lg text-on-surface-variant">No papers log found.</p>
+          </div>
+        `;
+        return;
+      }
+
+      // Render papers
+      container.innerHTML = papers.map(paper => {
+        const tagHTML = paper.tags.map(tag => `
+          <span class="px-2.5 py-0.5 bg-surface-container text-[11px] font-semibold text-on-surface-variant/85 rounded-full tracking-wide">
+            ${tag}
+          </span>
+        `).join('');
+
+        return `
+          <article class="border-b border-outline-variant/20 pb-8 last:border-0 last:pb-0 animate-fade-up">
+            <div class="mb-2">
+              <h4 class="text-[17px] font-semibold text-primary leading-snug">
+                <a class="article-link inline-flex items-center gap-1" href="${paper.url}" target="_blank" rel="noopener noreferrer">
+                  ${paper.title}
+                  <span class="material-symbols-outlined text-[15px]">open_in_new</span>
+                </a>
+              </h4>
+              <div class="text-body-md text-on-surface-variant mt-1">
+                ${paper.authors} &bull; Read ${paper.dateRead}
+              </div>
+            </div>
+            <div class="flex flex-wrap gap-1.5 mb-4">
+              ${tagHTML}
+            </div>
+            <div class="paper-summary-container">
+              <button onclick="toggleSummary(this)" class="text-body-md text-primary hover:underline font-semibold flex items-center gap-1 focus:outline-none mb-1 cursor-pointer">
+                <span>Read Summary</span>
+                <span class="material-symbols-outlined text-sm transition-transform duration-200">keyboard_arrow_down</span>
+              </button>
+              <div class="paper-summary hidden pl-4 border-l-2 border-outline-variant/40 mt-3 text-body-md font-sans text-on-surface/90 leading-relaxed whitespace-pre-line">
+                ${paper.summary}
+              </div>
+            </div>
+          </article>
+        `;
+      }).join('');
+
+    } catch (error) {
+      console.error('Error fetching research papers:', error);
+      container.innerHTML = fallbackHTML;
+    }
+  };
+
+  fetchArticles();
+  fetchResearchPapers();
+
+  // Tab Switching Logic
+  const tabBlogs = document.getElementById('tab-blogs');
+  const tabResearch = document.getElementById('tab-research');
+  const contentBlogs = document.getElementById('tab-blogs-content');
+  const contentResearch = document.getElementById('tab-research-content');
+
+  if (tabBlogs && tabResearch && contentBlogs && contentResearch) {
+    tabBlogs.addEventListener('click', () => {
+      // Toggle active tabs
+      tabBlogs.classList.add('border-primary', 'text-primary');
+      tabBlogs.classList.remove('border-transparent', 'text-on-surface-variant');
+      tabResearch.classList.remove('border-primary', 'text-primary');
+      tabResearch.classList.add('border-transparent', 'text-on-surface-variant');
+
+      // Toggle contents
+      contentBlogs.classList.remove('hidden');
+      contentResearch.classList.add('hidden');
+    });
+
+    tabResearch.addEventListener('click', () => {
+      // Toggle active tabs
+      tabResearch.classList.add('border-primary', 'text-primary');
+      tabResearch.classList.remove('border-transparent', 'text-on-surface-variant');
+      tabBlogs.classList.remove('border-primary', 'text-primary');
+      tabBlogs.classList.add('border-transparent', 'text-on-surface-variant');
+
+      // Toggle contents
+      contentResearch.classList.remove('hidden');
+      contentBlogs.classList.add('hidden');
+    });
+  }
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn.addEventListener('click', () => {
+    menu.classList.toggle('hidden');
+  });
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+      menu.classList.add('hidden');
+    });
+  });
+
+  // Scroll-based fade-in for sections
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('section').forEach(section => {
+    section.style.opacity = '0';
+    section.style.transform = 'translateY(20px)';
+    section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+    observer.observe(section);
+  });
+});
+
+// Expand/Collapse Research Paper Summaries
+window.toggleSummary = (btn) => {
+  const container = btn.closest('.paper-summary-container');
+  const summary = container.querySelector('.paper-summary');
+  const icon = btn.querySelector('.material-symbols-outlined');
+  const textSpan = btn.querySelector('span');
+
+  if (summary.classList.contains('hidden')) {
+    summary.classList.remove('hidden');
+    icon.style.transform = 'rotate(180deg)';
+    textSpan.textContent = 'Hide Summary';
+  } else {
+    summary.classList.add('hidden');
+    icon.style.transform = 'rotate(0deg)';
+    textSpan.textContent = 'Read Summary';
+  }
+};
+</script>
+</body>
+</html>
