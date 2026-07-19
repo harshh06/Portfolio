@@ -310,8 +310,22 @@
       <article>
         <h3 class="text-headline-md font-headline-md text-primary mb-3">Distributed Rate Limiter</h3>
         <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
-          A high-performance, horizontally scalable rate limiter implemented as FastAPI middleware. Uses Redis and Lua scripts to enforce atomic token-bucket rate limiting across multiple concurrent worker processes, eliminating race conditions that occur when parallel requests read-modify-write token counts simultaneously. Load-tested with k6 at 100 concurrent users sustaining 3,300+ req/s over 101K requests with ~30ms average latency and a p95 under 60ms.
+          A high-performance, horizontally scalable rate limiter implemented as FastAPI middleware. Uses Redis and Lua scripts to enforce atomic token-bucket rate limiting across multiple concurrent worker processes, eliminating race conditions that occur when parallel requests read-modify-write token counts simultaneously.
         </p>
+        <div class="grid grid-cols-3 gap-4 mb-4 py-3 px-4 border border-outline-variant/30 rounded-lg bg-surface-container-low">
+          <div class="text-center">
+            <span class="block text-headline-md font-headline-md text-primary">3,300+</span>
+            <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">req/s</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-headline-md font-headline-md text-primary">~30ms</span>
+            <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">avg latency</span>
+          </div>
+          <div class="text-center">
+            <span class="block text-headline-md font-headline-md text-primary">101K</span>
+            <span class="text-label-caps font-label-caps text-on-surface-variant uppercase tracking-widest">requests @ 100 VUs</span>
+          </div>
+        </div>
         <div class="flex flex-wrap gap-2.5 mb-4">
           <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">FastAPI</span>
           <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Redis</span>
