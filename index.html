@@ -306,6 +306,23 @@
         </div>
       </article>
 
+      <!-- Project 3 -->
+      <article>
+        <h3 class="text-headline-md font-headline-md text-primary mb-3">Distributed Rate Limiter</h3>
+        <p class="text-body-lg font-body-lg text-on-surface-variant mb-4 leading-relaxed">
+          A high-performance, horizontally scalable rate limiter implemented as FastAPI middleware. Uses Redis and Lua scripts to enforce atomic token-bucket rate limiting across multiple concurrent worker processes, eliminating race conditions that occur when parallel requests read-modify-write token counts simultaneously. Load-tested with k6 at 100 concurrent users sustaining 3,300+ req/s over 101K requests with ~30ms average latency and a p95 under 60ms.
+        </p>
+        <div class="flex flex-wrap gap-2.5 mb-4">
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">FastAPI</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Redis</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Lua</span>
+          <span class="px-2.5 py-0.5 border border-primary text-primary text-label-caps font-label-caps uppercase rounded-sm">Python</span>
+        </div>
+        <a class="text-primary font-body-md font-semibold article-link inline-flex items-center gap-1" href="https://github.com/harshh06/rate-limiter" target="_blank" rel="noopener noreferrer">
+          View on GitHub <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+      </article>
+
     </div>
   </section>
 
